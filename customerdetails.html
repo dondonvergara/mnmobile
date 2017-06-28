@@ -1,0 +1,59 @@
+<ons-page id="custdetails">
+  <ons-toolbar>
+    <div class="left">
+      <ons-back-button options="refresh">Back</ons-back-button>
+    </div>
+    <div class="center">Profile</div>
+    <div class="right">
+      <ons-toolbar-button>
+        <ons-icon icon="md-menu"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+  </ons-toolbar>
+    <div id="detalye" class="profile-card">
+        <img src="img/market.jpg" class="profile-image">
+        <div id="fullname" class="profile-name">{{fullname}}</div>
+        <div id="customername" class="profile-id">{{customername}}</div>
+        <div id="cust_id" class="profile-id">Customer ID: {{cust_id}}</div>
+        <div id="contactno" class="profile-id">{{contactno}}</div>
+        <div class="profile-desc">Customer Description</div>
+
+
+    <!--<ons-row>
+    <ons-col>CustomerID</ons-col>
+    <ons-col id="cust_id">{{cust_id}}</ons-col>
+    </ons-row>
+    <ons-row>
+    <ons-col>CustomerName</ons-col>
+    <ons-col id="customername">{{customername}}</ons-col>
+    </ons-row>
+    -->
+    <ons-row >
+    <ons-col>Total Loan Amount</ons-col>
+    <ons-col id="amount">{{amount}}</ons-col>
+    </ons-row>
+    <ons-row >
+    <ons-col>Total Balance</ons-col>
+    <ons-col id="balance">{{balance}}</ons-col>
+    </ons-row>
+    <ons-button id="viewloans-button">View Loans</ons-button>
+    <ons-button id="addpayment-button">Add Payment</ons-button>
+    </div>
+    <ons-list>
+        <ons-list-header>Loans</ons-list-header>
+        <ons-list-item>
+            <div class="left">LoanCode</div>
+            <div class="center">Balance</div>
+            <div class="right">Status</div>
+        </ons-list-item>
+        <div id="loan-list2">
+        <div id="loan-list2-item">
+        <ons-list-item>
+            <div class="left">{{loancode}}</div>
+            <div class="center">{{balance}}</div>
+            <div class="right">{{status}}</div>
+        </ons-list-item>
+        </div>
+        </div>
+      </ons-list>
+</ons-page>

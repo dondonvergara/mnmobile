@@ -1,0 +1,42 @@
+<ons-page id="loanlist">  
+  <ons-toolbar>
+        <div id="connectionstatus" class="left">Offline</div>
+        <!-- <div class="left">
+            <ons-toolbar-button id="splitter-toggle">
+                <ons-icon icon="fa-bars"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        -->
+        <div class="center">Loans</div>
+
+        <!-- <div class="right">
+            <ons-toolbar-button id="add">
+                <ons-icon icon="fa-plus"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        -->
+        <div class="right">
+            <ons-toolbar-button id="reload">Reload
+            <!--    <ons-icon icon="fa-refresh"></ons-icon> -->
+            </ons-toolbar-button>
+        </div>
+    </ons-toolbar>
+    </ons-toolbar>
+   <ons-list id="loan-list">
+        <div id="loan-list-item">
+        <div>
+        <ons-list-header>
+            <div class="loancode" color="blue">{{loan_id}} -- {{loancode}}</div>
+        </ons-list-header>
+        <ons-list-item>
+            <div class="left">Loan Amount: {{amount}}</div>
+            <div class="center">Balance: {{balance}}</div>
+            <div class="right"><ons-button>View</ons-button></div>
+        </ons-list-item>
+        </div>
+        </div>
+    </ons-list>
+    <!--
+    <ons-button id="loanpush-button">Push Loan page</ons-button>
+    -->
+</ons-page>

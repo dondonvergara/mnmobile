@@ -1,0 +1,31 @@
+<ons-page id="custlist" >
+  <ons-toolbar>
+        <div id="connectionstatus" class="left">Offline</div>
+    <!--    <ons-toolbar-button id="splitter-toggle">
+        <ons-icon icon="fa-bars"></ons-icon>
+        </ons-toolbar-button>
+    -->
+        <div class="center">Customers</div>
+        <div class="right">
+            <ons-toolbar-button id="reload">Reload
+            <!--    <ons-icon icon="fa-refresh"></ons-icon> -->
+            </ons-toolbar-button>
+        </div>
+    </ons-toolbar>
+    <ons-list id="customer-list">
+        <div id="customer-list-item">
+        <div>
+        <ons-list-header>{{customername}}</ons-list-header>
+        <ons-list-item>
+            <div class="center">
+            <span class="list-item__title">Total Balance: {{balance}}</span><span class="list-item__subtitle">Total Loan Amount: {{amount}}</span>
+            </div>
+          <!--  <div class="left">Total Loan Amount: {{amount}}</div>
+            <div class="center">Total Balance: {{balance}}</div>
+            -->
+            <div class="right"><ons-button>View</ons-button></div> 
+        </ons-list-item>
+        </div>
+        </div>
+    </ons-list>
+</ons-page>

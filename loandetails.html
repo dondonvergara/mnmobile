@@ -1,0 +1,71 @@
+<ons-page id="loandetails">
+  <ons-toolbar>
+    <div class="left">
+      <ons-back-button>Back</ons-back-button>
+    </div>
+    <div class="center">Title</div>
+    <div class="right">
+      <ons-toolbar-button>
+        <ons-icon icon="md-menu"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+  </ons-toolbar>
+<ons-card>
+    <img src="img/market2.jpg" alt="Onsen UI" style="width: 70%">
+    <div class="title">
+      Loan Details
+    </div>
+    <div class="content">
+      <div>
+      <div id="loandetalye">
+        <ons-row>
+            <ons-col>Loan ID</ons-col>
+            <ons-col id="loan_id">{{loan_id}}</ons-col>
+        </ons-row>
+        <ons-row>
+            <ons-col>Loancode</ons-col>
+            <ons-col id="loancode">{{loancode}}</ons-col>
+        </ons-row>
+        <ons-row >
+            <ons-col>Amount</ons-col>
+            <ons-col id="amount">{{amount}}</ons-col>
+        </ons-row>
+        <ons-row >
+            <ons-col>Balance</ons-col>
+            <ons-col id="balance">{{balance}}</ons-col>
+        </ons-row>
+        </div>
+        <ons-button id="viewpayments-button" class="left">Payments</ons-button>
+        <ons-button id="save-button" class="right">Save</ons-button>
+      </div>
+      <ons-list>
+        <ons-list-header>Payments</ons-list-header>
+        <ons-list-item>
+            <div class="left">Amount</div>
+            <div class="center">PaymentMode</div>
+            <div class="right">Date</div>
+        </ons-list-item>
+        <ons-list-item>
+            <div class="left"><ons-input id="amount" placeholder="Amount"></ons-input></div>
+            <div class="center"><ons-select id="paymentmode" onchange="app.selectpm(event)">
+              <option value="cash">Cash</option>
+              <option value="check">Check</option>
+            </ons-select>
+            </div>
+            <div class="right"><ons-input id="paydate" type="date"></ons-input></div>
+        </ons-list-item>
+        <div id="payment-list">
+        <div id="payment-list-item">
+        <ons-list-item>
+            <div class="left">{{amount}}</div>
+            <div class="center">{{paymentmode}}</div>
+            <div class="right">{{datepaid}}</div>
+        </ons-list-item>
+        </div>
+        </div>
+    </ons-list>
+    </div>
+  </ons-card>
+
+    
+</ons-page>

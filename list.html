@@ -1,0 +1,48 @@
+<ons-navigator id="myNavigator" page="list.html"></ons-navigator>
+
+<ons-template id="list.html">
+<ons-page>
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button id="splitter-toggle">
+                <ons-icon icon="fa-bars"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Customers</div>
+        <div class="right">
+            <ons-toolbar-button id="add">
+                <ons-icon icon="fa-plus"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+    </ons-toolbar>
+    
+    <ons-list id="customer-list"></ons-list>
+    
+    <script id="customer-list-item" type="text/template">
+        <ons-list-item tappable>
+            <div class="left">{{cust_id}}</div>
+            <div class="customername">{{customername}}</div>
+            <div class="right">
+                <ons-button>View</ons-button>
+            </div>
+        </ons-list-item>
+    </script>
+</ons-page>
+</ons-template>
+<ons-template id="customerdetails.html">
+<ons-page>
+  <ons-toolbar>
+    <div class="left">
+      <ons-back-button>Back</ons-back-button>
+    </div>
+    <div class="center">Title</div>
+    <div class="right">
+      <ons-toolbar-button>
+        <ons-icon icon="md-menu"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+  </ons-toolbar>
+
+  <p>Thi sis content</p>
+</ons-page>
+</ons-template>
