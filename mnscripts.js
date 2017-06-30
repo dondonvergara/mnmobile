@@ -6,6 +6,7 @@ var customer = {
     loans: [],
     payments: [],
     lpc: [],
+    active_loan: {},
     custevents: [],
     loanevents: []
 //    customers: [{"cust_id":444,"customername":"Aina","firstname":"Raina","lastname":"Vergara","balance":300000,"amount":400000},{"cust_id":333,"customername":"Rag","firstname":"Ragner","lastname":"Vergara","balance":300000,"amount":400000},{"cust_id":111,"customername":"Violeta","firstname":"Violeta","lastname":"Alcantara","balance":300000,"amount":400000},{"cust_id":222,"customername":"Alexandra","firstname":"Alexandre","lastname":"Cuyegkeng","balance":300000,"amount":50000}],
@@ -162,6 +163,7 @@ document.addEventListener('init', function(event) {
     //  page.querySelector('#loanpush-button').onclick = function() {
     //  document.querySelector('#myNavigator').pushPage('loandetails.html', {data: {title: 'Page 2'}});
     //};
+    console.log("LoanList initiated.");
     customer.qr_callloans();
     customer.loans = customerStorage.retrieveloans();
     customer.loanInit(event.target);  
@@ -193,9 +195,12 @@ document.addEventListener('init', function(event) {
     //  document.querySelector('#signin-button').addEventListener('click', function(){
           console.log("Save Payment Triggered");  
           // customer.paymentAdd(event.target,customerStorage.retrievepayments(page.data.loan_id));
-          page.querySelector('#loandetalye #amount').innerHTML = "88888";
+          //page.querySelector('#loandetalye #amount').innerHTML = "88888";
 
-          console.log(onlineStorage.getLoan("139"));
+          //console.log(onlineStorage.getLoan("139"));
+           document.querySelector('#myNavigator').replacePage('loandetails.html', {animation:"none", data: {title: 'Page 2', loan_id:page.data.loan_id, loancode: page.data.loancode,amount: page.data.amount,balance:page.data.balance}});
+         //document.querySelector('#myNavigator').popPage({refresh:true});
+
           });
 
 
@@ -203,6 +208,48 @@ document.addEventListener('init', function(event) {
     //customer.paymentInit(event.target,customerStorage.retrievepayments(page.data.loan_id));
   } 
 });
+
+customer.callbackpage = function(){
+    console.log("This is callback: "+loan_id+" "+loancode+" "+amount+" "+balance);
+    console.log(document.getElementById("viewpayments-button").innerHTML);
+    console.log(document.getElementById("save-button").innerHTML);
+
+    document.getElementById("viewpayments-button").addEventListener("click", function(event){
+    //    app.onClick, false);
+    //  document.querySelector('#signin-button').addEventListener('click', function(){
+          console.log("View Payments2 Triggered"+loan_id);  
+          customer.paymentInit(event.target,customerStorage.retrievepayments(loan_id));
+          });
+
+          document.getElementById("save-button").addEventListener("click", function(){
+          //console.log(onlineStorage.getLoan("139"));
+           document.querySelector('#myNavigator').replacePage('loandetails.html',{animation:"none"}).then(customer.callbackpage);
+           //, {data: {title: 'Page 2', loan_id:loan_id, loancode: loancode,amount: amount,balance:balance}}).then(customer.callbackpage);
+         //document.querySelector('#myNavigator').popPage({refresh:true});
+          });
+};
+
+customer.paymentInit = function(target,payments){
+    this.paymentlist = document.querySelector('#payment-list');
+    var paymentitems = payments;
+    console.log(target);
+    //target.querySelector('#splitter-toggle').addEventListener('click', function(){
+    //   document.querySelector("#splitter-menu").open(); 
+    //});
+    this.paymentlist.innerHTML = paymentitems.map(function(item){
+      return document.querySelector('#payment-list-item').innerHTML
+      .replace('{{amount}}', item.amount)
+      .replace('{{paymentmode}}', item.paymentmode)
+      .replace('{{datepaid}}', (new Date(item.datepaid)).toDateString());
+    }).join('');
+    // target.querySelector('#add').addEventListener('click', this.addItemPrompt.bind(this));
+    //target.querySelector('#myNavigator').pushPage('customerdetails.html', {data: {title: 'Page 2'}});
+    
+    //customerStorage.init();
+    //console.log("paymentInit Triggered: "+customer.payments.length);
+    
+    //customer.paymentrefresh();
+};
 
 customer.paymentAdd = function(target,payments){
     this.paymentlist = document.querySelector('#payment-list');
